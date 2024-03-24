@@ -27,9 +27,9 @@ To use the TuneInsight, follow these steps:
    ```
 3. Run the application:
 
-   ```bash
-   from SpotifyPlaylistAnalyzer import SpotifyPlaylistAnalyzer
-   spa = SpotifyPlaylistAnalyzer()
+   ```bashfrom
+   TuneInsight import TuneInsight
+   ti = TuneInsight()
    ```
 
 ## Usage
@@ -37,21 +37,21 @@ To use the TuneInsight, follow these steps:
 Here are some examples of how to use the TuneInsight:
 
 ```python
-from SpotifyPlaylistAnalyzer import SpotifyPlaylistAnalyzer
+from TuneInsight import TuneInsight
 
 # Initialize the analyzer
-spa = SpotifyPlaylistAnalyzer()
+ti = TuneInsight()
 
 # Retrieve user playlists and save to CSV
-playlist_df = spa.get_user_playlists(to_csv=True)
+playlist_df = ti.get_user_playlists(to_csv=True)
 display(playlist_df.head())
 
 # Retrieve saved episodes and save to CSV
-saved_episodes = spa.get_user_episodes(to_csv=True)
+saved_episodes = ti.get_user_episodes(to_csv=True)
 display(saved_episodes.head()
 
 # Retrieve top tracks, scale audio features, and save to CSV
-top_tracks = spa.get_top_tracks(to_csv=True, scale=True)
+top_tracks = ti.get_top_tracks(to_csv=True, scale=True)
 display(top_tracks.head())
 ```
 
