@@ -36,9 +36,9 @@ class RedirectHandler(BaseHTTPRequestHandler):
 
         self.server.authorization_code = authorization_code
 
-class SpotifyPlaylistAnalyzer:
+class TuneInsight:
     """
-    SpotifyPlaylistAnalyzer class provides methods to analyze Spotify playlists and extract audio features of tracks.
+    TuneInsight class provides methods to analyze Spotify playlists and extract audio features of tracks.
 
     Attributes:
         client_id (str): Client ID for accessing Spotify API.
@@ -49,9 +49,9 @@ class SpotifyPlaylistAnalyzer:
     """
 
     def __init__(self):
-        """Initialize SpotifyPlaylistAnalyzer.
+        """Initialize TuneInsight.
 
-        Initializes SpotifyPlaylistAnalyzer with necessary attributes and obtains access token.
+        Initializes TuneInsight with necessary attributes and obtains access token.
 
         Returns
         -------
