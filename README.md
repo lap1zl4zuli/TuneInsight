@@ -1,6 +1,6 @@
-# Spotify Playlist Analyzer
+# TuneInsight
 
-The Spotify Playlist Analyzer is a Python application that allows users to analyze Spotify playlists, extract audio features of tracks, and perform various operations such as retrieving user playlists, top tracks, and saved episodes. It utilizes the Spotify API to access user data and retrieve information about playlists, tracks, and episodes.
+The TuneInsight is a Python application that allows users to analyze Spotify playlists, extract audio features of tracks, and perform various operations such as retrieving user playlists, top tracks, and saved episodes. It utilizes the Spotify API to access user data and retrieve information about playlists, tracks, and episodes.
 
 ## Features
 
@@ -13,7 +13,7 @@ The Spotify Playlist Analyzer is a Python application that allows users to analy
 
 ## Installation
 
-To use the Spotify Playlist Analyzer, follow these steps:
+To use the TuneInsight, follow these steps:
 
 1. Clone the repository to your local machine:
 
@@ -34,7 +34,7 @@ To use the Spotify Playlist Analyzer, follow these steps:
 
 ## Usage
 
-Here are some examples of how to use the Spotify Playlist Analyzer:
+Here are some examples of how to use the TuneInsight:
 
 ```python
 from SpotifyPlaylistAnalyzer import SpotifyPlaylistAnalyzer
