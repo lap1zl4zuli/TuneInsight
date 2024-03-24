@@ -18,7 +18,7 @@ To use the TuneInsight, follow these steps:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/spotify-playlist-analyzer.git
+   https://github.com/lap1zl4zuli/TuneInsight.git
    ```
 2. Install the required dependencies:
 
