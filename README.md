@@ -1,6 +1,6 @@
-# TuneInsight
+# Spotify Playlist Analyzer
 
-The TuneInsight is a Python application that allows users to analyze Spotify playlists, extract audio features of tracks, and perform various operations such as retrieving user playlists, top tracks, and saved episodes. It utilizes the Spotify API to access user data and retrieve information about playlists, tracks, and episodes.
+The Spotify Playlist Analyzer is a Python application that allows users to analyze Spotify playlists, extract audio features of tracks, and perform various operations such as retrieving user playlists, top tracks, and saved episodes. It utilizes the Spotify API to access user data and retrieve information about playlists, tracks, and episodes.
 
 ## Features
 
@@ -13,12 +13,12 @@ The TuneInsight is a Python application that allows users to analyze Spotify pla
 
 ## Installation
 
-To use the TuneInsight, follow these steps:
+To use the Spotify Playlist Analyzer, follow these steps:
 
 1. Clone the repository to your local machine:
 
    ```bash
-   https://github.com/lap1zl4zuli/TuneInsight.git
+   git clone https://github.com/your-username/spotify-playlist-analyzer.git
    ```
 2. Install the required dependencies:
 
@@ -27,31 +27,31 @@ To use the TuneInsight, follow these steps:
    ```
 3. Run the application:
 
-   ```bashfrom
-   TuneInsight import TuneInsight
-   ti = TuneInsight()
+   ```bash
+   from SpotifyPlaylistAnalyzer import SpotifyPlaylistAnalyzer
+   spa = SpotifyPlaylistAnalyzer()
    ```
 
 ## Usage
 
-Here are some examples of how to use the TuneInsight:
+Here are some examples of how to use the Spotify Playlist Analyzer:
 
 ```python
-from TuneInsight import TuneInsight
+from SpotifyPlaylistAnalyzer import SpotifyPlaylistAnalyzer
 
 # Initialize the analyzer
-ti = TuneInsight()
+spa = SpotifyPlaylistAnalyzer()
 
 # Retrieve user playlists and save to CSV
-playlist_df = ti.get_user_playlists(to_csv=True)
+playlist_df = spa.get_user_playlists(to_csv=True)
 display(playlist_df.head())
 
 # Retrieve saved episodes and save to CSV
-saved_episodes = ti.get_user_episodes(to_csv=True)
+saved_episodes = spa.get_user_episodes(to_csv=True)
 display(saved_episodes.head()
 
 # Retrieve top tracks, scale audio features, and save to CSV
-top_tracks = ti.get_top_tracks(to_csv=True, scale=True)
+top_tracks = spa.get_top_tracks(to_csv=True, scale=True)
 display(top_tracks.head())
 ```
 
