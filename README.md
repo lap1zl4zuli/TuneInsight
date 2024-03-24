@@ -17,22 +17,20 @@ To use the Spotify Playlist Analyzer, follow these steps:
 
 1. Clone the repository to your local machine:
 
-    ```bash
-    git clone https://github.com/your-username/spotify-playlist-analyzer.git
-    ```
-
+   ```bash
+   git clone https://github.com/your-username/spotify-playlist-analyzer.git
+   ```
 2. Install the required dependencies:
 
-    ```bash
-    pip install -r requirements.txt
-    ```
-
+   ```bash
+   pip install -r requirements.txt
+   ```
 3. Run the application:
 
-    ```bash
-    from SpotifyPlaylistAnalyzer import SpotifyPlaylistAnalyzer
-    spa = SpotifyPlaylistAnalyzer()
-    ```
+   ```bash
+   from SpotifyPlaylistAnalyzer import SpotifyPlaylistAnalyzer
+   spa = SpotifyPlaylistAnalyzer()
+   ```
 
 ## Usage
 
@@ -58,7 +56,9 @@ display(top_tracks.head())
 ```
 
 # Security Notice
+
 Please ensure that you do not expose your Spotify API client ID and client secret publicly. Store them securely and avoid hardcoding them directly into your codebase.
 
 # License
-This project is licensed under the MIT License. See the LICENSE file for details.
+
+This project is licensed under the MIT License. See the [LICENSE ](LICENSE)file for details.
