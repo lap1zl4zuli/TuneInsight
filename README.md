@@ -1,6 +1,6 @@
 # TuneInsight
 
-The TuneInsight is a Python application that allows users to analyze Spotify playlists, extract audio features of tracks, and perform various operations such as retrieving user playlists, top tracks, and saved episodes. It utilizes the Spotify API to access user data and retrieve information about playlists, tracks, and episodes.
+TuneInsight is a Python application that allows users to analyze Spotify playlists, extract audio features of tracks, and perform various operations such as retrieving user playlists, top tracks, and saved episodes. It utilizes the Spotify API to access user data and retrieve information about playlists, tracks, and episodes.
 
 ## Features
 
