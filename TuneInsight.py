@@ -48,7 +48,7 @@ class TuneInsight:
         scalers (list): List of scaler objects for feature scaling.
     """
 
-    def __init__(self):
+    def __init__(self, user : str):
         """Initialize TuneInsight.
 
         Initializes TuneInsight with necessary attributes and obtains access token.
@@ -61,6 +61,7 @@ class TuneInsight:
         --------
         >>>
         """
+        self.user = user
         self.client_id = 'CLIENT_ID'
         self.client_secret = 'CLIENT_SECRET'
         self.redirect_uri = "http://localhost:8888/callback"
@@ -173,7 +174,8 @@ class TuneInsight:
 
             df_main = pd.concat(dfs,ignore_index=True)
             df_main.drop_duplicates(subset=['songs'],inplace=True)
-            df_main.to_csv(os.path.join(self.spreadsheets_dir, "playlist_df.csv"),index=False)
+            
+            df_main.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_playlist_df.csv"),index=False)
             self.playlistdf = df_main
             return df_main
         else:
@@ -329,7 +331,7 @@ class TuneInsight:
         if scale:
             return self.__scale_audio_features(df, audio_features, to_csv, top_tracks=True)
         else:
-            df.to_csv(os.path.join(self.spreadsheets_dir, "top_tracks_df.csv"),index=False)
+            df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_top_tracks_df.csv"),index=False)
             self.toptracks_df = df
             return df
     def get_user_episodes(self, to_csv=False):
@@ -370,7 +372,7 @@ class TuneInsight:
         )
 
         if to_csv:
-            eps_df.to_csv(os.path.join(self.spreadsheets_dir, "saved_episodes.csv"),index=False)
+            eps_df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_saved_episodes.csv"),index=False)
         
         self.epsdf = eps_df
         return eps_df
@@ -400,10 +402,10 @@ class TuneInsight:
 
         if to_csv:
             if top_tracks:
-                df.to_csv(os.path.join(self.spreadsheets_dir, "top_tracks_df.csv"),index = False)
+                df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_top_tracks_df.csv"),index = False)
                 self.toptracks_df = df
             else:
-                df.to_csv(os.path.join(self.spreadsheets_dir, "playlist_df.csv"),index = False)
+                df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_playlist_df.csv"),index = False)
                 self.playlistdf = df
         return df
 
@@ -597,6 +599,6 @@ class TuneInsight:
         if scale:
             return self.__scale_audio_features(df, audio_features, to_csv)
         else:
-            df.to_csv(os.path.join(self.spreadsheets_dir, "playlist_df.csv"),index=False)
+            df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_playlist_df.csv"),index=False)
             self.playlistdf = df
             return df
