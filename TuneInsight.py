@@ -331,10 +331,10 @@ class TuneInsight:
                 df.loc[i,'release_date']  = parse(df.loc[i,'release_date']).date()
         if scale:
             return self.__scale_audio_features(df, audio_features, to_csv, top_tracks=True)
-        else:
+        elif to_csv:
             df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_top_tracks.csv"),index=False)
             self.toptracks_df = df
-            return df
+        return df
     def get_user_episodes(self, to_csv=False):
         """Retrieve episodes saved by the current user from Spotify.
 
