@@ -48,7 +48,7 @@ class TuneInsight:
         scalers (list): List of scaler objects for feature scaling.
     """
 
-    def __init__(self, user : str):
+    def __init__(self, user : str, client_id, client_secret : str):
         """Initialize TuneInsight.
 
         Initializes TuneInsight with necessary attributes and obtains access token.
@@ -62,8 +62,8 @@ class TuneInsight:
         >>>
         """
         self.user = user
-        self.client_id = 'CLIENT_ID'
-        self.client_secret = 'CLIENT_SECRET'
+        self.client_id = client_id
+        self.client_secret = client_secret
         self.redirect_uri = "http://localhost:8888/callback"
         self.token = None
         self.scalers = [
