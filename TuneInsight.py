@@ -175,7 +175,7 @@ class TuneInsight:
             df_main = pd.concat(dfs,ignore_index=True)
             df_main.drop_duplicates(subset=['songs'],inplace=True)
             
-            df_main.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_playlist_df.csv"),index=False)
+            df_main.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_all_playlists.csv"),index=False)
             self.playlistdf = df_main
             return df_main
         else:
@@ -331,7 +331,7 @@ class TuneInsight:
         if scale:
             return self.__scale_audio_features(df, audio_features, to_csv, top_tracks=True)
         else:
-            df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_top_tracks_df.csv"),index=False)
+            df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_top_tracks.csv"),index=False)
             self.toptracks_df = df
             return df
     def get_user_episodes(self, to_csv=False):
@@ -377,7 +377,7 @@ class TuneInsight:
         self.epsdf = eps_df
         return eps_df
 
-    def __scale_audio_features(self, df, cols_to_scale, to_csv=False, top_tracks=False):
+    def __scale_audio_features(self, df, cols_to_scale, playlist_name='', to_csv=False, top_tracks=False):
         """Scale the specified columns of the DataFrame.
 
         Parameters
@@ -402,10 +402,10 @@ class TuneInsight:
 
         if to_csv:
             if top_tracks:
-                df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_top_tracks_df.csv"),index = False)
+                df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_top_tracks.csv"),index = False)
                 self.toptracks_df = df
             else:
-                df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_playlist_df.csv"),index = False)
+                df.to_csv(os.path.join(self.spreadsheets_dir, f"{playlist_name}_playlist.csv"),index = False)
                 self.playlistdf = df
         return df
 
@@ -597,8 +597,8 @@ class TuneInsight:
                 df.loc[i,'release_date']  = parse(df.loc[i,'release_date']).date()
             clear_output()
         if scale:
-            return self.__scale_audio_features(df, audio_features, to_csv)
+            return self.__scale_audio_features(df, audio_features, to_csv, playlist_name=playlist_name)
         else:
-            df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_playlist_df.csv"),index=False)
+            df.to_csv(os.path.join(self.spreadsheets_dir, f"{playlist_name}_playlist.csv"),index=False)
             self.playlistdf = df
             return df
