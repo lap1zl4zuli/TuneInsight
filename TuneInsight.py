@@ -172,7 +172,7 @@ class TuneInsight:
                 dfs.append(self.playlist_df(playlist_id=id, scale=scale, to_csv=False, dropna=dropna, parse_date=parse_date))
 
             df_main = pd.concat(dfs,ignore_index=True)
-            df_main.drop_duplicates(inplace=True)
+            df_main.drop_duplicates(subset=['songs'],inplace=True)
             df_main.to_csv(os.path.join(self.spreadsheets_dir, "playlist_df.csv"),index=False)
             self.playlistdf = df_main
             return df_main
