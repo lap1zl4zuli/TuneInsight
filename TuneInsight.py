@@ -175,8 +175,9 @@ class TuneInsight:
             df_main = pd.concat(dfs,ignore_index=True)
             df_main.drop_duplicates(subset=['songs'],inplace=True)
             
-            df_main.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_all_playlists.csv"),index=False)
-            self.playlistdf = df_main
+            if to_csv:
+                df_main.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_all_playlists.csv"),index=False)
+                self.playlistdf = df_main
             return df_main
         else:
             print("Invalid playlist number. Please choose a valid playlist.")
