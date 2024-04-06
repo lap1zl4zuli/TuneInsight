@@ -29,7 +29,11 @@ To use the TuneInsight, follow these steps:
 
    ```bash
    from TuneInsight import TuneInsight
-   ti = TuneInsight()
+   ti = TuneInsight(
+       user='username',
+       client_id=client_id,
+       client_secret=client_secret
+   )
    ```
 
 ## Usage
@@ -40,7 +44,11 @@ Here are some examples of how to use the TuneInsight:
 from TuneInsight import TuneInsight
 
 # Initialize the analyzer
-ti = TuneInsight()
+   ti = TuneInsight(
+       user='username',
+       client_id=client_id,
+       client_secret=client_secret
+   )
 
 # Retrieve user playlists and save to CSV
 playlist_df = ti.get_user_playlists(to_csv=True)
