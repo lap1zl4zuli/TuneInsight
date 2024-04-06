@@ -168,8 +168,8 @@ class TuneInsight:
                 print("This playlist can't be retrieved")
 
         elif selected_playlist_index == len(user_playlists['items']):
-            for i in user_playlists['items']:
-                id = i['id']
+            for playlist in user_playlists['items']:
+                id = playlist['id']
                 dfs.append(self.playlist_df(playlist_id=id, scale=scale, to_csv=False, dropna=dropna, parse_date=parse_date))
 
             df_main = pd.concat(dfs,ignore_index=True)
