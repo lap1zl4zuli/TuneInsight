@@ -330,7 +330,7 @@ class TuneInsight:
             for i in tqdm(range(len(df)), desc="Parsing Dates"):
                 df.loc[i,'release_date']  = parse(df.loc[i,'release_date']).date()
         if scale:
-            df = self.__scale_audio_features(df, audio_features, to_csv, top_tracks=True)
+            df = self.__scale_audio_features(df, audio_features)
         if to_csv:
             df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_top_tracks.csv"),index=False)
             self.toptracks_df = df
