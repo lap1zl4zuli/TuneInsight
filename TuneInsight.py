@@ -61,8 +61,8 @@ class TuneInsight:
         --------
         >>>
         """
-        self.client_id = 'f8afd34042484fc1b44fcc56280d3d17'
-        self.client_secret = 'c6bc64f304fc4fb482472d62869ea169'
+        self.client_id = 'CLIENT_ID'
+        self.client_secret = 'CLIENT_SECRET'
         self.redirect_uri = "http://localhost:8888/callback"
         self.token = None
         self.scalers = [
