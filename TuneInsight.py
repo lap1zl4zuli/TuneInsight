@@ -598,7 +598,7 @@ class TuneInsight:
             clear_output()
         if scale:
             return self.__scale_audio_features(df, audio_features, to_csv, playlist_name=playlist_name)
-        else:
+        if to_csv:
             df.to_csv(os.path.join(self.spreadsheets_dir, f"{playlist_name}_playlist.csv"),index=False)
             self.playlistdf = df
-            return df
+        return df
