@@ -330,8 +330,8 @@ class TuneInsight:
             for i in tqdm(range(len(df)), desc="Parsing Dates"):
                 df.loc[i,'release_date']  = parse(df.loc[i,'release_date']).date()
         if scale:
-            return self.__scale_audio_features(df, audio_features, to_csv, top_tracks=True)
-        elif to_csv:
+            df = self.__scale_audio_features(df, audio_features, to_csv, top_tracks=True)
+        if to_csv:
             df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_top_tracks.csv"),index=False)
             self.toptracks_df = df
         return df
@@ -378,7 +378,7 @@ class TuneInsight:
         self.epsdf = eps_df
         return eps_df
 
-    def __scale_audio_features(self, df, cols_to_scale, playlist_name='', to_csv=False, top_tracks=False):
+    def __scale_audio_features(self, df, cols_to_scale):
         """Scale the specified columns of the DataFrame.
 
         Parameters
@@ -400,14 +400,6 @@ class TuneInsight:
         for col in tqdm(cols_to_scale, desc="Scaling Audio Features"):
             df[col] = pd.DataFrame(self.scalers[0].fit_transform(pd.DataFrame(df[col])), columns=[col])
         clear_output()
-
-        if to_csv:
-            if top_tracks:
-                df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_top_tracks.csv"),index = False)
-                self.toptracks_df = df
-            else:
-                df.to_csv(os.path.join(self.spreadsheets_dir, f"{playlist_name}_playlist.csv"),index = False)
-                self.playlistdf = df
         return df
 
     def playlist_df(self, playlist_id=None, url=None, scale=False, dropna=True, to_csv=False, parse_date = True):
@@ -598,7 +590,7 @@ class TuneInsight:
                 df.loc[i,'release_date']  = parse(df.loc[i,'release_date']).date()
             clear_output()
         if scale:
-            return self.__scale_audio_features(df, audio_features, to_csv, playlist_name=playlist_name)
+            df = self.__scale_audio_features(df, audio_features)
         if to_csv:
             df.to_csv(os.path.join(self.spreadsheets_dir, f"{playlist_name}_playlist.csv"),index=False)
             self.playlistdf = df
