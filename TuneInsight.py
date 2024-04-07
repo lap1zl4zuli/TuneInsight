@@ -53,6 +53,15 @@ class TuneInsight:
 
         Initializes TuneInsight with necessary attributes and obtains access token.
 
+        Parameters
+        ----------
+        user : str
+            The username of the Spotify account.
+        client_id : str
+            Client ID for accessing Spotify API.
+        client_secret : str
+            Client secret for accessing Spotify API.
+
         Returns
         -------
         None
@@ -387,11 +396,6 @@ class TuneInsight:
             DataFrame containing the columns to be scaled.
         cols_to_scale : list
             List of column names to be scaled.
-        to_csv : bool, default=False
-            Whether to save the DataFrame to a CSV file.
-        top_tracks : bool, default=False
-            Whether the DataFrame is for top tracks.
-
         Returns
         -------
         DataFrame
