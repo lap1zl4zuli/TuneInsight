@@ -68,7 +68,11 @@ class TuneInsight:
 
         Examples
         --------
-        >>>
+        >>> ti = TuneInsight(
+        >>>     user="yourname",
+        >>>     client_id=client_id,
+        >>>     client_secret=client_secret
+        >>> )
         """
         self.user = user
         self.client_id = client_id
@@ -185,7 +189,7 @@ class TuneInsight:
             df_main.drop_duplicates(subset=['songs'],inplace=True)
             
             if to_csv:
-                df_main.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_all_playlists.csv"),index=False)
+                df_main.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}'s_all_playlists.csv"),index=False)
                 self.playlistdf = df_main
             return df_main
         else:
@@ -341,7 +345,7 @@ class TuneInsight:
         if scale:
             df = self.__scale_audio_features(df, audio_features)
         if to_csv:
-            df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_top_tracks.csv"),index=False)
+            df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}'s_top_tracks.csv"),index=False)
             self.toptracks_df = df
         return df
     def get_user_episodes(self, to_csv=False):
@@ -382,7 +386,7 @@ class TuneInsight:
         )
 
         if to_csv:
-            eps_df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}_saved_episodes.csv"),index=False)
+            eps_df.to_csv(os.path.join(self.spreadsheets_dir, f"{self.user}'s_saved_episodes.csv"),index=False)
         
         self.epsdf = eps_df
         return eps_df
